@@ -1,0 +1,295 @@
+default directory
+-------------------
+
+/bin -- Contains binary file system
+/home - Contains user home directory 
+/dev  - device file like block 
+/etc  - System configuration
+/lib  - Shared lib and kernel modules
+/sbin - Binary utilities for which only root or system administrator has access
+/mnt  - Mount point for a file system
+/tmp  - Used for storing temporary data and files 
+/proc - kernel data mounted as file system . only application to linux based os 
+/boot contains the initramfs and Kernel image .
+/sys -- kernel data structure for different hardware and devices like block devices / firmware /acpi.
+
+
+ls -l -- long list
+
+-rw-r--r--         1                        adityaraj  staff  3021 Feb 10 01:44 Vagrantfile
+user group other link(how many link it has) username   group  date/time             filename   
+
+ls -li : inodes are datatsucture in kernel.
+ls lrt : using time in reverse order (acending order)\
+
+man -- manual used for any command 
+
+tty --- which terminal
+
+dw -- delete one word
+yank yy ---copy line 
+paste -- p
+delete one letter - x
+delete lines - dd
+revert back changes - u
+remove number : set nonu
+
+
+-rwx      rwx     rwx   
+user      group   other 
+
+
+r -- 4
+w -- 2
+x -- 1
+max 7 
+- +/ add remove permissions 
+
+chmod -- chnage permissions.
+chmod -R  dir name to change all the permission inside a directory
+chown 
+chgrp
+
+
+
+ctrl +z  --- stop any 
+jobs --- to check jobs 
+bg %1 - start job again 
+kill --- to stop any job 
+
+
+short
+short -u (remove dublicate items) 
+uniq
+
+
+ps -- process status 
+ps -ef | more [see all process of system in page by page]
+ps aux
+ps -eLf
+LWP -- in linux thread is called light weight process .
+top ---  use q to exit
+top -b -n 1 display once and exit terminal
+n is no of iteration
+
+
+FILE Descriptor 
+-------------------
+            output
+1. stdin  : 0
+2. stdout : 1
+3. stderr : 2
+
+
+> Redirect to a file or stdout.
+< input from a file or stdin .
+>> Append to a file  
+<< Redirect and append to a file 
+ 
+
+ Dev/Null is a special character device where redirection is to it completely lost .
+
+
+Find Command 
+------------
+find . -name file name 
+find . -iname file name (case insensitive )
+find . -maxdepth 3 -iname file name "*.txt"
+find . -maxdepth 3 -not -iname file name "*.txt"
+find . -iname "*.txt" -o -iname "*.cpp"  (or ) 
+find . -iname "*.txt" -a -iname "*.cpp"  (and )   
+find . type f -perm 0777
+
+
+Grep -- Global regular expression print
+=========================================
+
+variant of grep 
+-------------
+grep - regular grep 	
+egrep - same as grep -E  extended grep for regular expression
+fgrep - same as grep -F  Fixed string seprated by new line 
+rgrep - same as grep -r  reverse grep 
+
+
+grep -r : recursive grep : search in all sub directories 
+
+i -- case sensitive 
+v - dont search 
+r -- recursive 
+w -- for exact word 
+n -- tells the line number
+
+grep -A 2 after line 
+grep -B 2 before line 
+
+cat aditya.txt | grep -A 2 -B 3 aditya
+
+grep -f aditya.txt /etc/passwd
+
+
+Script 
+--------
+$# --- will give the no of argument passed 
+$@ --- will display the total no of argument passed 
+$* --- will display the total no of argument passed 
+
+
+"$*" -- under quotes it will take multiple argument as one argument .
+"$@" -- under quotes it will not take multiple argument as one argument. 
+
+ Function in shell 
+ ------------------
+ 
+ df_function()
+ {
+   #content 
+ }
+
+
+While loop 
+============
+
+while [ condition ]
+do 
+    command 1
+    command 2
+done
+
+awk
+--------
+it is used for searching data in a file and print data on console .
+
+
+1. Print Specific coloumn.
+    awk '{print $1"  "$2}' file.txt
+
+2. Print entire file .
+    awk '{print $0}' file.txt
+
+2. Print from csv file .
+    aawk -F "," '{print $3}' filecsv.txt
+
+    awk -F "," '{print $3}' filecsv.txt
+
+ 3. Special variable 
+        awk -F "," '{print $3}' filecsv.txt
+
+ 4. remove header 
+     awk 'NR!=1{print $1}' FS="," filecsv.txt
+     awk 'NR>1{print $1}' FS="," filecsv.txt
+
+ 5. save into a file 
+    awk NR!=1'{print $1}' FS="," filecsv.txt >result.txt
+
+#!/bin/bash
+ps -ef | awk '{print $1,$2,$3}'  >> processresult.txt
+echo "@@@@@@@@@@@    END OF LOGS  @@@@@@@@@@@@@@@" >> processresult.txt
+echo "SUCESSFULL"           
+
+any specific string in file
+awk '/aja/ {print $1}' FS="," filecsv.txt >result.txt
+
+
+
+cron tab 
+=========
+
+Step 1: Open a Terminal Window (Command Line) in Linux.
+Step 2: The following is a list of cron directories:
+• /etc/cron.hourly
+• /etc/cron.daily
+• /etc/cron.weekly
+• /etc/cron.monthly
+Copy your shell script ‘script.sh` or ‘script’ into one of the directories above.
+If you need to run the script hourly, place your script file in the “cron.hourly”
+folder. For daily, place it inside the “cron.daily” and so forth.
+Step 3: Give the shell script the correct permission. For example, if script is called
+“script.sh”, set permission as follows:
+cd /etc/cron.daily/
+chmod 755 script.sh
+
+
+Step 4: Add new cron job to crontab:
+crontab –e
+This opens vi editor for you. Create the cron command using the following syntax:
+1. The number of minutes after the hour (0 to 59)
+2. The hour in military time (24 hour) format (0 to 23)
+3. The day of the month (1 to 31)
+4. The month (1 to 12)
+5. The day of the week(0 or 7 is Sun, or use name)
+6. The command to run
+More graphically they would look like this:
+* * * * * Command to be executed
+- - - - -
+| | | | |
+| | | | +----- Day of week (0-7)
+| | | +------- Month (1 - 12)
+| | +--------- Day of month (1 - 31)
+| +----------- Hour (0 - 23)
++------------- Min (0 - 59)
+An example command would be “0 0 * * * /etc/cron.daily/script.sh”. This
+would mean that the shell script will exactly execute at midnight every
+night. 
+
+
+
+
+sed command 
+===================
+1.display specific line
+--------------------
+sed '2p' file.txt
+
+2. display specific line 
+
+sed -n '2p' file.txt
+
+3.   display last line of file 
+
+sed -n '$p' file.txt
+
+4. display specific line 
+sed -n '2,4p' file.txt 
+
+5. dont display specific line
+sed -n '2!p' file.txt
+
+6. dont display specific range of line 
+sed -n '2,4!p' filext 
+
+7.display line having specific word
+sed -n '/Aditya/p' file.txt
+
+8. display line having specific word (ignore)
+sed -n '/[Aa]ditya/p' file.txt
+
+
+9. search line and store to file 
+sed -n '/[Aa]/w output.txt' file.txt
+
+10.replace content of file 
+sed 's/1000/4444/' file.txt 
+
+11. replace multiple data in one command 
+sed -e 's/22/33/' -e 's/33/44/'
+
+12 . insert data 
+sed '1i welcomw' file.txt 
+
+
+
+Tar command 
+————————-
+To achieve —— “tar -cvf archive-name.tar /home”.
+
+To unarchive :      “tar -xvf archive-name.tar”.
+
+
+Gzip
+Gunzip
+
+ 
+
+
+
