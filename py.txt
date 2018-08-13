@@ -1,0 +1,641 @@
+Variables 
+-------
+Variable are boxes which stores data .
+
+Variables value can be changed dynamically in Python .
+
+type() function tells the type of variable .
+
+Python has five standard data types -
+1. Numbers
+2. String 
+3. List
+4. Tuple
+5. Dictionary 
+
+
+Integer. 
+----------
+There are four types of number type :
+1. int 
+2. long 
+3. float 
+4. complex
+
+
+The plus (+) sign is the string concatenation operator and the asterisk (*) is the repetition operator.
+
+String 
+---------
+Strings in Python are identified as a contiguous set of characters represented in the quotation marks
+
+str = 'Hello World!'
+
+\' --- single quote
+\" --- double quote
+\t --- tab 
+\n --- Newline
+\\ --- Backslash
+
+## String method  returns a new string value . Since strings are immutables it is impossible to modify them .
+
+methods
+--------
+upper()
+lower()
+
+isupper()--
+islower() -- 
+
+is****() method returns boolean 
+isalpha()--- letters
+isalnum()-- alphanum
+isdecimal()-- decimal
+isspace()-- whitespace
+istittle()-- tittle case 
+
+startswith()
+endswith()
+join()-- used to join list of strings 
+split() --
+rjust() --
+ljust() --
+center() --
+strip() -- remove space or 
+lstrip() 
+rstrip()
+replace('e', 'xyz')
+pyperclips.copy()/paste()
+
+
+%s - conversion specifier 
+
+
+
+LIST 
+----
+Lists are the most versatile of Python's compound data types. A list contains items separated by commas and enclosed within square brackets ([]). To some extent, lists are similar to arrays in C.
+
+list = [ 'abcd', 786 , 2.23, 'john', 70.2 ]
+
+Value in the list are callles items .
+The Index starts with 0 .
+
+
+Tuples
+-------
+A tuple is another sequence data type that is similar to the list. A tuple consists of a number of values separated by commas. Unlike lists, however, tuples are enclosed within parentheses.
+
+tuple = ( 'abcd', 786 , 2.23, 'john', 70.2  )
+
+
+Dictionary 
+------------
+Python's dictionaries are kind of hash table type. They work like associative arrays or hashes found in Perl and consist of key-value pairs.
+
+A dictionary key can be almost any Python type, but are usually numbers or strings. Values, on the other hand, can be any arbitrary Python object.
+
+Dictionaries are enclosed by curly braces ({ }) and values can be assigned and accessed using square braces ([])
+
+Methods in dictionary
+---------------
+keys() ---
+values()---
+items() ---
+above 3 methods will return list-like values of a dictionary keys , value and both respectively .
+
+get()-- it returns a default value if key doesnot exists .
+setdefault()-- method can set a value if a key doesnot exists .
+pprint() -- "pretty print" function can display a dictionary.
+pformat() -- pformat() function returns a string value of this 	     output .
+
+
+
+
+example 
+--------
+dict = {}
+dict['one'] = "This is one"
+dict[2]     = "This is two"
+
+tinydict = {'name': 'john','code':6734, 'dept': 'sales'}
+
+
+print dict['one']       # Prints value for 'one' key
+print dict[2]           # Prints value for 2 key
+print tinydict          # Prints complete dictionary
+print tinydict.keys()   # Prints all the keys
+print tinydict.values() # Prints all the values
+
+mycat = {'size': 'fat', 'color': 'gray', 'disposition' : 'loud'}
+mycat['size'] --> 'fat'
+
+
+
+Python - loops 
+--------------
+1.while loop 
+2.for loop ---- we can use range function range().
+3.nested loop 
+
+
+input()
+------
+Input function always returns a string value .
+
+print()
+--------
+displays value passed into it .
+
+
+len()
+-------
+It takes the string value and returns integer value as length of string .
+
+int(),str(),float()
+------------------
+converts Value data types .
+
+
+Function ()
+==========
+
+Builtin function :
+-----------------
+random , sys , os , math
+
+pyperclip function is used to copy and paste on clipboard.
+
+end= '' is used to combine multiple print function
+sep= 'sd' used as seprator .
+
+# def is used to define function .
+
+# The input to function is argument .
+# The output is the return type .
+
+
+Local and Global variables :
+============================
+
+spam = 20 /// global variable 
+
+def temp() :
+    spam = 42  \\\\\ local variable .
+
+
+# A global variable is created when program starts and gets destroyed when the Program       gets terminated .
+
+# A local variable is created when the function is called and gets destroyed when the function returns .
+
+
+METHODS 
+===========
+1. index()
+-----------
+ gives the index .
+ if there is duplicate value in the list the it will return first index of search .
+
+2. append() and insert()
+------------------------- 
+
+These two functions are used to insert the value to end of list .
+
+## append() method adds value at end of lists .
+## insert() method adds a value anywhere inside a list .
+
+3. remove()
+--------------
+Removes value from list
+
+4.sort()
+-----------
+ Sorts list .
+
+spam.sort(reverse=True) ---> to sort in decending order 
+
+String and integer cannot  be sorted in a list .
+
+## Sorting happens in "ASSCII-betical" . To Sort normally we need to pass key=str.lower.
+
+eg : 
+spam.sort(key=str.lower)
+
+# Strings in python are imutables.They cant be changed .
+
+#  Immutables value like string  and tuples cannot be modified .
+# Variables don't  contains lists ,they contains reference to lists and when we are passing a list reference .
+
+Changes made to a list in a function will affect the list outside the function .
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+REGULAR EXPRESSION
+-------------------
+
+## Regulat expression is used to search text patterns.
+
+# Import re module to use regex .
+# Call re.compile() function to create a regex object.
+# Call regex objects  search() method to create a match object .
+# Call the match object group() method to get the matched string 
+# findall to search all the ouccurance .
+
+
+\d is the regex for a numeric  digit character.
+\w word 
+\s space tab
+? - this represents the group can ouccur 0 or 1 times .
+* - match 0 or more times .
++ - matches one or more time .
+{} - The curly braces can match a specific number of times .
+{x,y}- matches minimum and maximum numbers of line .  
+^   - adding caret makes it negative character .
+\D -- not digit
+\W -- not word 
+\S -- not space
+
+# Groups are created in regex strings with parentheses.
+ The first set of parentheses is group 1 , the second is 2 ,  and so on .
+
+# Calling group() or group(0) returns the full matching string , group(1) and returns group 1's matching and so on .
+
+# Use \(and\) to match literal parentheses in the regex string 
+
+# The | pipe can match one of many possible groups.
+
+=============================================================================
+
+FILE 
+---------------------------------------------
+# import os
+
+# os.path.join('folder1','folder2','folder3','file.png')
+'folder1\\folder2\\folder\\folder3\\file.png'
+
+# os.sep
+o\p -> '\\'
+
+os.getcwd()
+'c:\\'folder1','folder2','folder3','file.png'
+
+# os.chdir('c:\\') change directory 
+# os.getcwd()  #### switches to root folder
+o\p -> 'c:\\'
+
+# os.path.abspath('filename') ## will provide the path of file 
+
+# os.path.isabs('filepath') ## returns true false 
+
+# os.path.relpath('c:\\'folder1\\folder2\\folder\\folder3\\file.png' 'c:\\folder1')
+
+o\p->> 'folder2\\folder\\folder3\\file.png' ## provides the rest of the folder file structure.
+
+SEARCH DIRECTORY OR FILE PATH :
+-------------------------------
+# os.path.dirname('c:\\folder1\\folder2\\file.png')
+output->> 'c:\\folder1\\folder2'
+
+# os.path.basename('c:\\folder1\\folder2\\file.png') # op-> 'file.png'
+os.path.basename('c:\\folder1\\folder2') # op-> 'folder2'
+
+# os.path.exists('c:\\folder1\\folder2\\file.png')# returns true false 
+# os.path.isdir('c:\\folder1\\folder2') # returns true false 
+# os.path.isfile('')
+# os.path.getsize('c:\\folder1\\folder2\\file.png') # provides size
+
+# os.listdir('c:\\folder1') will list all directory and files .
+# os.makedirs()
+
+
+# open('To open a file ')
+  modes : 'w' --> write mode  'a' --> append mode 
+# read('to read a file ')
+# close('to close a file ')
+# write('to write in a file')
+
+# readlines() ## returns content of filr in a list-like
+
+# The shelve module can store Python value in a binary file .
+
+import shelve 
+shelfFile = shelve.open('mydata')
+shelfFile['var'] = ['a', 's', 'd']
+shelfFile.close()
+
+
+COPY AND MOVING FILES AND FOLDER :
+----------------------------------
+
+import shutil
+shutil.copy('c:\\file.png', 'c:\\folder1')  ## copy file from one location to another .
+              |----src----|    |---dest---|
+
+shutil.copytree('c:\\folder', 'c:\\backup') ## Copy all the files and folder 
+shutil.move('c:\\file.png', 'c:\\folder1') ## change file location 
+
+DELETING FILE 
+--------------
+One function is there in os module:
+os.unlink('file name or path ') ## Will delete a file 
+os.rmdir('c:\\') ## Will delete empty folder 
+
+to delete a non empty folder:
+-------------------------------
+
+import shutil 
+
+shutil.rmtree('path') ## All files will be deleted from system .
+
+We can use 'Send2trash' to delete file and keen in recycle bin :
+---------------------------------------------------------------
+## install send2thrash module 
+
+send2trash.send2thrash('c:\\..\\..\\.txt') ## Will delete and send to recycle bin ##
+
+
+----------------------------------------------
+WALKING A DIRECTORY TREE 
+========================
+os.walk('path') ## it yields a 3-tuple (dirpath, dirnames, filenames). ##
+
+import os
+for folderName, subfolders, filenames in os.walk('C:\Program Files'):
+	print('The folder is ' + folderName)
+	print('The subfolders in ' + folderName + 'are' + str(subfolders))
+	print('The filenames in ' + folderName + 'are' + str(filenames))
+	print()
+	
+------------------------------------------------------------------------------
+Raise Exception in Python 
+==============================
+
+We can raise exception with "raise" 
+"""
+***************
+*			  *
+*			  *
+*             *
+*             *
+***************
+"""
+def boxPrint(symbol, width, height):
+    if len(symbol) != 1:
+        raise Exception('"symbol" needs to be of length 1 ')
+    if (width < 2) or (height < 2):
+        raise Exception('Width or height should be greter than 2')
+    print(symbol * width)
+    for i in range(height - 2):
+        print(symbol + (' ' * (width - 2)) + symbol)	
+    print(symbol * width)
+boxPrint('e', 21, 5)
+
+saving exception to a file : by using traceback.format_exc()
+---------------------------------------------------------------
+import os
+import traceback 
+try:
+    raise Exception('This is a error message. ')
+except:
+        errorFile = open('errot.txt', 'a')
+        errorFile.write(traceback.format_exc())
+        errorFile.close()
+        print('The traceback info was written error.txt')
+		
+---------------------------------------------------------------
+
+
+LOGGING MODULE 
+==============
+import logging 
+
+basic configuration to debug 
+-----------------------------------
+import logging
+logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
+we can add (filename='path')
+# logging .debug('Start of program ') ### to debug line by line ####
+# logging .debug('Start of fact %s' % (variable_name_to_print) )  
+# logging.disable(logging.CRITICAL)  ### to disable the logs generated .
+
+
+logging.DEBUG and logging.CRITICAL are called log levels 
+
+Log levels 
+----------------
+debug(lowest)
+info
+warning
+error
+critical (highest)
+
+logging.debug()
+logging.info()
+logging.warning()
+logging.error()
+logging.critical()
+
+
+==================================================================
+THE WEBBROWSER MODULE 
+--------------------------------
+import webbrowser 
+webbrowser.open('https://google.com')
+
+
+
+import webbrowser, sys , pyperclip
+sys.argv
+if len(sys.argv) > 1:
+
+    address = ' '.join(sys.argv[1:])
+else:
+    address = pyperclip.paste()
+
+webbrowser.open('https://www.google.com/maps/place/' + address)
+
+
+REQUESTS MODULES
+--------------------
+Requests module is used to download file .
+import requests
+res = requests.get('https://automatetheboringstuff.com/files/rj.txt')
+print(res.status_code) 
+
+
+
+=========================================================================
+Working with spreedsheet :
+---------------------------
+# Spreedsheet is called work book with extension .xlsx
+# It can contain multiple sheets .
+# It contains Rows and columns .
+
+>>> os.chdir('C:\\Users\\Administrator\\Downloads')
+>>> os.getcwd()
+'C:\\Users\\Administrator\\Downloads'
+>>> workbook = openpyxl.load_workbook('example.xlsx')
+>>> type(workbook)
+
+
+# sheet = workbook.get_sheet_by_name('Sheet')
+
+# workbook.get_sheet_names()
+# 
+sheet['A1']
+cell.value
+
+=================================================
+
+WORKING WITH  PDF 
+--------------------
+PyPDF2 doesn’t allow you to directly edit a PDF. Instead, you have to create a new PDF and then copy content over from an existing document. 
+
+import PyPDF2
+pdfFileObj = open('meetingminutes.pdf', 'rb')  ## rb read binary 
+pdfReader = PyPDF2.PdfFileReader(pdfFileobj)
+
+Creating PDF 
+------------
+import PyPDF2
+pdf1File = open('meeting.pdf', 'rb')
+pdf2File = open('meeting2.pdf', 'rb')
+pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
+pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+pdfwrite = PyPDF2.PdfFileWriter()
+
+for pagenum in range(pdf1Reader.numPages):
+    pageobj = pdf1Reader.getPage(pagenum)
+	pdfwrite.addPage(pageobj)
+	
+for pagenum in range(pdf2Reader.numPages)
+	pageobj =  pdf2Reader.getPage(pagenum)
+	pdfwrite.addPage(pageobj)
+	
+pdfOutputFile = open('output.pdf', 'wb')
+pdfWrite.write(pdfOutputFile)
+pdfOutputFile.close()
+pdf1File.close()
+pdf2File.close()
+
+
+==========================================
+Editing word file 
+-----------------------
+pip install python-docx
+
+import docx
+
+def getText (filename)
+    doc = doc.Document(filename)
+    fulltext = []
+    for para in doc.paragraphs:
+        fullText.append(para.text)
+        return '\n ' .join(fulltext)
+
+print(getText(path))
+
+======================================
+
+send emails and text message 
+----------------------------
+smtp - simple mail transfer protocol
+
+example 
+------
+
+import smtplib 
+conn = smtplib.SMTP('smtp.gmail.com', 587)
+## type(conn)
+# conn
+# conn.ehlo()
+conn.starttls()
+conn.login('user ', 'pass')
+conn.sendmail('to', 'from', 'subject:so long ..)
+{}
+conn.quit()
+
+==============================
+GUI Automation 
+---------------
+mouse contolling function 
+--------------------
+import pyautogui
+
+pyautogui.size()
+width, height = pyautogui.size()
+width
+height
+
+# pyautogui.position() ## keep the cursor and it will display the position 
+# payautogui.moveTo(10, 10)
+# payautogui.moveTo(10, 10, duration=1.5)
+# payautogui.moveRel(200, 0, duration=2)
+# payautogui.moveRel(0, -100, duration=1)
+# dragto() and dragRel() are used to drag will move the mouse while holding  down mouse button .
+# payautogui.click(339, 38) ## we can use right/left/middle click function .
+# pyautogui.displayMousePosition()
+
+keyboard controling  function 
+--------------------------------
+
+import pyautogui
+pyautogui.click(100, 100); pyautogui.typewrite('Hello')
+pyautogui.click(100, 100); pyautogui.typewrite('Hello', interval=0.2)
+
+pyautogui.press() will press single key 
+pyautogui.hotkey() can be used for keybord shortcuts like ctrl + o 
+
+
+
+
+
+
+ 
+
+
+
+
+		
+	
+	
+	
+
+
+
+ 
+
+
+
+
+			  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
